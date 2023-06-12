@@ -53,4 +53,7 @@ VALUES
 	('Amelina', 'McNirlan', 22, 4),
 	('Courtney', 'Holley', 22, 1),
 	('Sigismond', 'Vala', 21, 4),
-	('Jacquelynn', 'Halfacre', 24, 2);
+	('Jacquelynn', 'Halfacre', 24, 2),
+	('Alanna', 'Spino', 25, 3),
+	('Isa', 'Slight', 32, 1),
+	('Kakalina', 'Renne', 26, 3);
