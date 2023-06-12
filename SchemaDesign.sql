@@ -57,3 +57,23 @@ VALUES
 	('Alanna', 'Spino', 25, 3),
 	('Isa', 'Slight', 32, 1),
 	('Kakalina', 'Renne', 26, 3);
+
+
+-- 6. Populate the Interest table with the data provided below using INSERT statements:
+-- title
+-- Programming
+-- Gaming
+-- Computers
+-- Music
+-- Movies
+-- Cooking
+-- Sports
+INSERT INTO interest (title)
+VALUES
+	('Programming'),
+	('Gaming'),
+	('Computers'),
+	('Music'),
+	('Movies'),
+	('Cooking'),
+	('Sports');
