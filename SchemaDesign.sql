@@ -199,3 +199,14 @@ JOIN location AS l ON p.location_id = l.id
 JOIN person_interest AS pi ON p.id = pi.person_id
 JOIN interest AS i ON pi.interest_id = i.id
 WHERE i.title = 'Programming' AND l.city = 'Nashville' AND l.state = 'Tennessee';
+
+-- OPTIONAL BONUS: Use GROUP BY with cases to determine how many people there are in each of the following age ranges: 20-30, 30-40, 40-50 (Resulting Columns: range & count)
+SELECT
+	CASE
+		WHEN age >= 20 AND age <= 30 THEN '20-30'
+		WHEN age >= 30 AND age <= 40 THEN '30-40'
+		WHEN age >= 40 AND age <= 50 THEN '40-50'
+	END AS range,
+	COUNT(*) AS count
+FROM person
+GROUP BY range;
