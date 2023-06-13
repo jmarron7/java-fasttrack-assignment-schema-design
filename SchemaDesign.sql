@@ -141,7 +141,7 @@ VALUES
 	(19, 7);
 
 
-    -- 8. Some users had birthdays and our app doesn’t have a way to for them to update their age. They’ve sent in a request to the DB team, so we need to update the age of the following users (Add 1 to their age):
+-- 8. Some users had birthdays and our app doesn’t have a way to for them to update their age. They’ve sent in a request to the DB team, so we need to update the age of the following users (Add 1 to their age):
 UPDATE person
 SET age = age + 1
 WHERE (first_name = 'Chickie' AND last_name = 'Ourtic')
@@ -152,3 +152,17 @@ WHERE (first_name = 'Chickie' AND last_name = 'Ourtic')
    OR (first_name = 'Isa' AND last_name = 'Slight')
    OR (first_name = 'Abbott' AND last_name = 'Fisbburne')
    OR (first_name = 'Reeta' AND last_name = 'Sammons');
+
+
+-- 9. We’ve recieved a few requests from users to delete their accounts. This functionality also hasn’t been implemented in the app, so they’ve reached out to our team to remove all data for the following people (Don’t forget to delete their interests from the Person_Interest table):
+DELETE FROM person_interest
+WHERE person_id IN (
+  SELECT id
+  FROM person
+  WHERE first_name = 'Hilton' AND last_name = 'O''Hanley'
+     OR first_name = 'Alanna' AND last_name = 'Spino'
+);
+
+DELETE FROM person
+WHERE first_name = 'Hilton' AND last_name = 'O''Hanley'
+   OR first_name = 'Alanna' AND last_name = 'Spino';
