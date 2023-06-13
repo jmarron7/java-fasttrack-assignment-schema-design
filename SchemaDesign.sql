@@ -139,3 +139,16 @@ VALUES
 	(19, 5),
 	(19, 6),
 	(19, 7);
+
+
+    -- 8. Some users had birthdays and our app doesn’t have a way to for them to update their age. They’ve sent in a request to the DB team, so we need to update the age of the following users (Add 1 to their age):
+UPDATE person
+SET age = age + 1
+WHERE (first_name = 'Chickie' AND last_name = 'Ourtic')
+   OR (first_name = 'Winnie' AND last_name = 'Whines')
+   OR (first_name = 'Edouard' AND last_name = 'Lorimer')
+   OR (first_name = 'Courtney' AND last_name = 'Holley')
+   OR (first_name = 'Melva' AND last_name = 'Lanham')
+   OR (first_name = 'Isa' AND last_name = 'Slight')
+   OR (first_name = 'Abbott' AND last_name = 'Fisbburne')
+   OR (first_name = 'Reeta' AND last_name = 'Sammons');
