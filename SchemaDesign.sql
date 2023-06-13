@@ -166,3 +166,36 @@ WHERE person_id IN (
 DELETE FROM person
 WHERE first_name = 'Hilton' AND last_name = 'O''Hanley'
    OR first_name = 'Alanna' AND last_name = 'Spino';
+
+
+-- 10. Our business team wants to learn more about the people using our app. Write SELECT statements to gather the following information:
+-- Get all the names (first and last) of the people using the application (Columns to SELECT = firstName & lastName)
+SELECT first_name, last_name
+FROM person;
+
+-- Find all the people who live in Nashville, TN (Columns to SELECT = firstName, lastName, city, & state)
+SELECT first_name, last_name, city, state
+FROM person AS p
+JOIN location AS l ON p.location_id = l.id
+WHERE l.city = 'Nashville' AND l.state = 'Tennessee';
+
+-- Use COUNT & GROUP BY to figure out how many people live in each of our four cities (Resulting Columns: city & count)
+SELECT city, COUNT(*) AS count
+FROM person AS p
+JOIN location AS l ON p.location_id = l.id
+GROUP BY l.city;
+
+-- Use COUNT & GROUP BY to determine how many people are interested in each of the 7 interests (Resulting Columns: title & count)
+SELECT title, COUNT(*) AS count
+FROM person AS p
+JOIN person_interest AS pi ON p.id = pi.person_id
+JOIN interest AS i ON pi.interest_id = i.id
+GROUP BY i.title;
+
+-- Write a query that finds the names (first and last) of all the people who live in Nashville, TN and are interested in programming (Columns to SELECT = firstName, lastName, city, state, & interest title)
+SELECT first_name, last_name, city, state, title AS interest_title
+FROM person AS p
+JOIN location AS l ON p.location_id = l.id
+JOIN person_interest AS pi ON p.id = pi.person_id
+JOIN interest AS i ON pi.interest_id = i.id
+WHERE i.title = 'Programming' AND l.city = 'Nashville' AND l.state = 'Tennessee';
